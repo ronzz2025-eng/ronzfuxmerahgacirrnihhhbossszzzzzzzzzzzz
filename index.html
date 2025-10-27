@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FIX MERAH BY RONZ - PREMIUM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1:#000814;
+      --accent-1:#0077ff;
+      --accent-2:#00e1ff;
+      --card: rgba(255,255,255,0.05);
+      --muted: rgba(230,245,255,0.8);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(circle at 15% 20%, var(--bg-1), #000);
+      color:#e8f7ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-align:center;
+      padding:28px;
+      line-height:1.5;
+    }
+
+    /* Header */
+    .wrap{max-width:980px;margin:0 auto}
+    .brand{display:flex;gap:12px;align-items:center;justify-content:center}
+    .logo{
+      width:70px;height:70px;border-radius:18px;
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:#fff;font-size:24px;
+      box-shadow:0 0 30px rgba(0,238,255,0.25);
+    }
+    h1{margin:16px 0 8px;font-size:28px;color:var(--accent-2);text-shadow:0 0 18px rgba(0,255,255,0.15)}
+
+    /* Password Screen */
+    #password-screen{
+      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,rgba(0,0,0,0.9),rgba(0,0,0,0.95));z-index:9999;padding:20px
+    }
+    .pw-card{
+      width:100%;max-width:900px;
+      background:linear-gradient(180deg, rgba(0,30,50,0.8), rgba(0,10,20,0.7));
+      border-radius:16px;padding:26px;
+      border:1px solid rgba(0,238,255,0.2);
+      box-shadow:0 0 40px rgba(0,255,255,0.12);
+      text-align:center;
+      backdrop-filter: blur(10px);
+    }
+    .pw-card h2{margin:0;color:var(--accent-2);font-size:22px}
+    #password-input{
+      width:100%;max-width:420px;padding:12px;
+      border-radius:10px;border:none;font-size:16px;text-align:center;
+      margin:14px 0;background:rgba(255,255,255,0.05);
+      color:inherit;box-shadow:inset 0 0 10px rgba(0,255,255,0.15)
+    }
+    .pw-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      cursor:pointer;border:none;padding:12px 20px;border-radius:12px;font-weight:700;
+      transition:transform .15s,box-shadow .15s,background .2s;
+    }
+    .btn-main{
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      color:#fff;
+      box-shadow:0 0 20px rgba(0,255,255,0.15);
+    }
+    .btn-main:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,255,255,0.3);}
+    .btn-alt{
+      background:rgba(255,255,255,0.05);
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.05);
+    }
+    .promo-row{margin-top:18px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+    .promo-text{
+      background:linear-gradient(90deg, rgba(0,123,255,0.08), rgba(0,123,255,0.04));
+      color:var(--accent-2);padding:10px 16px;border-radius:10px;font-weight:700;
+      border:1px solid rgba(0,123,255,0.08);text-shadow:0 0 6px rgba(0,255,255,0.2);
+    }
+    .contact-btn{
+      display:inline-block;padding:10px 16px;border-radius:9px;text-decoration:none;color:#fff;font-weight:700;
+      box-shadow:0 0 15px rgba(0,0,0,0.2);
+    }
+    .wa{background:#25D366}
+    .tg{background:#0088cc}
+
+    /* Main */
+    main{max-width:960px;margin:20px auto 80px;display:none}
+    .panel{
+      background:rgba(255,255,255,0.03);
+      border-radius:14px;padding:20px;margin:16px 0;
+      border:1px solid rgba(255,255,255,0.06);
+      text-align:left;
+      box-shadow:0 0 25px rgba(0,255,255,0.05);
+    }
+    .panel h2{margin:0 0 8px;color:var(--accent-2);text-align:center;text-shadow:0 0 10px rgba(0,255,255,0.2)}
+    label{display:block;margin-bottom:8px;font-weight:600;color:#dff6ff}
+    .input-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center}
+    input[type="text"]{
+      padding:12px;border-radius:10px;border:none;width:260px;text-align:center;font-size:15px;
+      background:rgba(255,255,255,0.05);color:inherit;box-shadow:inset 0 0 8px rgba(0,255,255,0.1)
+    }
+    .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+    .small{font-size:13px;color:rgba(220,245,255,0.85)}
+    .hint{font-size:13px;color:rgba(200,235,255,0.85)}
+
+    iframe{border:0}
+    footer{margin-top:18px;color:rgba(190,230,255,0.9);font-weight:700;text-align:center}
+
+    @media(max-width:560px){
+      .logo{width:58px;height:58px;font-size:18px}
+      h1{font-size:22px}
+      input[type="text"]{width:200px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand"><div class="logo">RZ</div></header>
+    <h1>⚡ FIX MERAH BY RONZ ⚡</h1>
+
+    <!-- Password -->
+    <div id="password-screen">
+      <div class="pw-card">
+        <h2>Masukkan Password</h2>
+        <input id="password-input" type="text" placeholder="Ketik password...">
+        <div class="pw-actions">
+          <button id="password-button" class="btn btn-main">Masuk</button>
+          <button id="show-promo" class="btn btn-alt">Info Promo</button>
+        </div>
+
+        <div class="promo-row">
+          <div class="promo-text">💥BUY AKSES PREM CEK BIO KE SINI💥</div>
+          <a class="contact-btn wa" href="https://wa.me/6285142948151" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="contact-btn tg" href="https://t.me/teleronz" target="_blank" rel="noopener">Telegram</a>
+        </div>
+
+        <p style="margin-top:12px;font-size:13px;color:rgba(200,235,255,0.85)">Protected by <strong>RONZ STORE 💙</strong></p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <section class="panel">
+        <div style="font-weight:800;color:var(--accent-2);margin-bottom:8px;text-align:center">
+          BUY AKSES PREMIUM CEK BIO KE SINI 👑
+        </div>
+        <div style="text-align:center" class="small">Hubungi via Telegram atau WhatsApp — tombol di layar password</div>
+        <div style="display:flex;justify-content:center;margin-top:10px">
+          <iframe id="bgAudio" width="0" height="0" src="https://www.youtube.com/embed/LD3ZrGA_bG0?autoplay=1&loop=1&playlist=LD3ZrGA_bG0&mute=1&controls=0" allow="autoplay; encrypted-media"></iframe>
+        </div>
+        <p class="hint" style="text-align:center;margin-top:8px">Musik latar otomatis berjalan & akan mengulang terus (loop).</p>
+      </section>
+
+      <section class="panel">
+        <label for="nomor">Masukkan Nomor WhatsApp Anda</label>
+        <div class="input-row">
+          <input id="nomor" type="text" placeholder="+62xxxxxxx">
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-main" onclick="openMail('v1')">V1</button>
+          <button class="btn btn-main" onclick="openMail('v2')">V2</button>
+          <button class="btn btn-main" onclick="openMail('v3')">V3</button>
+          <button class="btn btn-main" onclick="openMail('v4')">V4</button>
+          <button class="btn btn-main" onclick="openMail('v5')">V5</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>CARA PAKAI — (Ringkas & Profesional)</h2>
+        <ol style="padding-left:18px">
+          <li>Masukkan nomor WhatsApp lengkap (contoh: <code>+628123456789</code>).</li>
+          <li>Pilih versi banding (V1–V5) yang diinginkan.</li>
+          <li>Gmail akan terbuka otomatis dengan <strong>SUBJEK</strong> dan <strong>ISI</strong> pesan terisi.</li>
+          <li>Periksa kembali isi, tambahkan lampiran bila perlu, lalu klik <strong>Kirim</strong>.</li>
+          <li>Simpan bukti pengiriman (screenshot) untuk tindak lanjut.</li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>NOTE / CATATAN PENTING</h2>
+        <ul style="padding-left:18px">
+          <li>Jangan kirim spam atau berulang dalam waktu singkat.</li>
+          <li>Fitur ini hanya menyiapkan pesan — pengiriman tetap manual via Gmail.</li>
+         <li>FIX MERAH tidak untuk tulisan “Memerlukan WhatsApp Ori”</li>
+         <li>Jika merah dan ada tulisan (OK) → skip aja</li>
+         <li>Khusus untuk tulisan (Hubungi Saya)</li>
+        <li>Gunakan Gmail fresh / baru buat agar gacor!</li>
+          <li>Butuh bantuan premium? Hubungi owner melalui WhatsApp / Telegram.</li>
+        </ul>
+      </section>
+
+      <section class="panel" style="text-align:center">
+        <h2 style="color:var(--accent-2)">Hubungi Owner Premium</h2>
+        <h3 style="margin:6px 0">꧁𝐄𝐗𝐍𝐓乂𝐑𝐎𝐍𝐙彡꧂</h3>
+        <a class="contact-btn wa" href="https://wa.me/6285142948151" target="_blank">WhatsApp</a>
+        <a class="contact-btn tg" href="https://t.me/teleronz" target="_blank">Telegram</a>
+      </section>
+
+      <footer>Made with 💙 by <strong>꧁𝐄𝐗𝐍𝐓乂𝐑𝐎𝐍𝐙彡꧂</strong></footer>
+    </main>
+  </div>
+
+  <script>
+    const CORRECT = "TANYA RONZ COBA";
+    document.getElementById('password-button').addEventListener('click', tryUnlock);
+    document.getElementById('show-promo').addEventListener('click', ()=> alert('Promo: BUY AKSES PREMIUM — WA & Telegram ada di tombol.'));
+
+    function tryUnlock(){
+      const v = document.getElementById('password-input').value.trim();
+      if (v === CORRECT){
+        document.getElementById('password-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        attemptUnmute();
+      } else alert('Password salah!');
+    }
+
+    const TEMPLATES = {
+      v1:{subject:"Request for WhatsApp Account Reverification",body:`Dear WhatsApp Meta AI Support Team,\n\nI hope this message finds you well. My WhatsApp account has been restricted unexpectedly, and I kindly request a review of the suspension.\n\nWhatsApp Number: [nomor]\n\nSincerely,\n[Your Name]`},
+      v2:{subject:"Permohonan Peninjauan Ulang Akun WhatsApp",body:`Halo Tim Dukungan WhatsApp Meta AI,\n\nSaya mengajukan permohonan peninjauan ulang atas pemblokiran akun WhatsApp saya.\n\nNomor WhatsApp: [nomor]\n\nTerima kasih,\n[Your Name]`},
+      v3:{subject:"WhatsApp Account Deactivation Appeal",body:`Hello WhatsApp Support,\n\nMy account appears to have been deactivated unexpectedly.\n\nNumber: [nomor]\n\nWarm regards,\n[Your Name]`},
+      v4:{subject:"Запрос на разблокировку аккаунта WhatsApp Meta AI",body:`Здравствуйте, команда поддержки WhatsApp Meta AI!\n\nПрошу пересмотреть блокировку моего аккаунта.\n\nНомер WhatsApp: [nomor]\n\nСпасибо!`},
+      v5:{subject:"Заявление о разблокировке аккаунта WhatsApp Meta AI",body:`К команде поддержки WhatsApp Meta AI,\n\nЗдравствуйте, крутая команда WhatsApp Meta AI!\nЯ хочу обратиться с просьбой о разблокировке моего аккаунта WhatsApp.\n\nС уважением,\n[аль Гхозали]\nНомер WhatsApp: [nomor]`}
+    };
+
+    function openMail(v){
+      const target='support@support.whatsapp.com';
+      const nomor=document.getElementById('nomor').value.trim()||'[nomor]';
+      const t=TEMPLATES[v];if(!t)return;
+      const mailto=`mailto:${encodeURIComponent(target)}?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(t.body.replace(/\[nomor\]/g,nomor))}`;
+      window.location.href=mailto;
+    }
+
+    function attemptUnmute(){
+      try{
+        const iframe=document.getElementById('bgAudio');
+        iframe.src="https://www.youtube.com/embed/LD3ZrGA_bG0?autoplay=1&loop=1&playlist=LD3ZrGA_bG0&mute=1";
+        setTimeout(()=>{iframe.src="https://www.youtube.com/embed/LD3ZrGA_bG0?autoplay=1&loop=1&playlist=LD3ZrGA_bG0&mute=0"},1200);
+      }catch(e){console.warn('Autoplay failed',e);}
+    }
+
+    document.getElementById('password-input').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+  </script>
+</body>
+</html>
