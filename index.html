@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONZ DIGITAL | OFFICIAL SYSTEM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-green: #00ff00;
+            --dark-bg: #050505;
+            --glass: rgba(0, 255, 0, 0.05);
+            --glass-border: rgba(0, 255, 0, 0.2);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 40, 0, 0.2) 0%, transparent 80%),
+                linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* --- LOADING SYSTEM --- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.8s ease-in-out;
+        }
+        .loader-logo {
+            width: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+            margin-bottom: 20px;
+        }
+        .bar {
+            width: 150px;
+            height: 4px;
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: grow 1.5s ease-in-out forwards;
+        }
+        @keyframes grow { to { width: 100%; } }
+
+        /* --- MAIN CONTENT --- */
+        .wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 25px 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-logo {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .secondary-logo {
+            width: 80%;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 8px var(--neon-green));
+        }
+
+        /* --- LINK CARDS --- */
+        .link-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-card {
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .link-card:hover {
+            background: rgba(0, 255, 0, 0.12);
+            border-color: var(--neon-green);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.15);
+        }
+
+        /* LOGO DI BAGIAN BUTTON */
+        .link-card i {
+            font-size: 26px;
+            width: 40px;
+            text-align: center;
+            margin-right: 15px;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .link-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .link-info p {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        /* --- WARNING SECTION --- */
+        .warning-box {
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+        }
+
+        .warning-img {
+            width: 100%;
+            display: block;
+        }
+
+        .footer {
+            margin: 40px 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            color: var(--neon-green);
+            opacity: 0.5;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <img src="https://files.catbox.moe/ybw3rd.jpg" class="loader-logo">
+        <div class="bar"><div class="progress"></div></div>
+    </div>
+
+    <div class="wrapper">
+        <img src="https://files.catbox.moe/ybw3rd.jpg" alt="Logo Bot" class="main-logo">
+        
+        <img src="https://files.catbox.moe/mjq0oh.jpg" alt="Ronz4Ever" class="secondary-logo">
+
+        <div class="link-container">
+
+            <a href="https://wa.me/6288216043777" class="link-card">
+                <i class="fab fa-whatsapp"></i>
+                <div class="link-info">
+                    <h3>WHATSAPP</h3>
+                    <p>龍 𝗥𝗢𝗡𝗭𝟰𝗘𝗩𝗘𝗥 火</p>
+                </div>
+            </a>
+
+            <a href="https://t.me/PRESIDENRONZ" class="link-card">
+                <i class="fab fa-telegram"></i>
+                <div class="link-info">
+                    <h3>TELEGRAM ADMIN 1</h3>
+                    <p>@PRESIDENRONZ</p>
+                </div>
+            </a>
+
+            <a href="https://t.me//PRESIDENRONZZ" class="link-card">
+                <i class="fab fa-telegram"></i>
+                <div class="link-info">
+                    <h3>TELEGRAM ADMIN 2</h3>
+                    <p>@PRESIDENRONZZ</p>
+                </div>
+            </a>
+
+            <a href="https://t.me/chanelronz" class="link-card">
+                <i class="fas fa-bullhorn"></i>
+                <div class="link-info">
+                    <h3>INFORMASI & TESTIMONI</h3>
+                    <p>Channel Update & Bukti Fix</p>
+                </div>
+            </a>
+
+            <a href="https://t.me/ronzcbiowhatsaapp1_bot" class="link-card">
+                <i class="fas fa-robot"></i>
+                <div class="link-info">
+                    <h3>BOT CEK BIO & FIX MERAH</h3>
+                    <p>Otomatisasi Sistem Ronz</p>
+                </div>
+            </a>
+
+            <a href="https://t.me/ronz_order_bot" class="link-card">
+                <i class="fas fa-shopping-basket"></i>
+                <div class="link-info">
+                    <h3>BOT AUTO ORDER ON 24JAM</h3>
+                    <p>Klik Untuk Mulai Order</p>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="warning-box">
+            <img src="https://files.catbox.moe/azx0nw.jpg" alt="Warning Penipuan" class="warning-img">
+        </div>
+
+        <div class="footer">
+            CONNECT • CREATE • GROW
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 800);
+            }, 1800);
+        });
+    </script>
+</body>
+</html>
